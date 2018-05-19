@@ -46,4 +46,6 @@ implementation project(':thunder')
     
 Screenshot
 ----------
+In this example, I used Snackbar to show that the network is unavailable.
+The rest is your idea to do something onNetworkAvailable and onNetworkUnavailable methods.
 ![Screenshot](/screenshot/screenshot.jpg)
