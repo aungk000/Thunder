@@ -38,11 +38,15 @@ Example
     
 Usage
 -----
-To use this library in your project, copy the library folder and import it from your project.
+To use this library in your project, copy the library folder ('thunder') and import it from your project.
 
 In app/build.gradle
 
+```groovy
 implementation project(':thunder')
+```
+
+minSdkVersion = '23'
     
 Screenshot
 ----------
