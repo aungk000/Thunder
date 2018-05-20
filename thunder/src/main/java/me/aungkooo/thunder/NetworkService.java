@@ -31,7 +31,8 @@ public class NetworkService extends IntentService
         data.putExtra(NETWORK_AVAILABLE, networkAvailable);
         sendBroadcast(data);
 
-        SystemClock.sleep(1500);
+        // WARNING: Wait an amount of time to reduce memory consuming
+        SystemClock.sleep(1000);
     }
 
     @Override
@@ -41,8 +42,7 @@ public class NetworkService extends IntentService
         connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
     }
 
-    public boolean isNetworkAvailable()
-    {
+    public boolean isNetworkAvailable() {
         return connectivityManager != null
                 && connectivityManager.getActiveNetworkInfo() != null
                 && connectivityManager.getActiveNetworkInfo().isAvailable()

@@ -50,8 +50,7 @@ public class MainActivity extends AppCompatActivity implements NetworkListener
 
     @Override
     public void onNetworkUnavailable() {
-        if(!snackbar.isShown())
-        {
+        if(!snackbar.isShown()) {
             snackbar.show();
         }
     }

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+import java.security.InvalidParameterException;
+
 /**
  * Created by Ko Oo on 19/5/2018.
  */
@@ -26,8 +28,7 @@ public class Thunder
         this.intentFilter = intentFilter;
     }
 
-    public static Thunder with(Context context)
-    {
+    public static Thunder with(Context context) {
         if(instance == null) {
             synchronized (Thunder.class) {
                 instance = new Builder(context).build();
@@ -46,7 +47,7 @@ public class Thunder
 
         public Builder(Context context) {
             if(context == null) {
-                throw new IllegalArgumentException("Context must not be null");
+                throw new InvalidParameterException("Context must not be null");
             }
 
             this.context = context;
@@ -75,14 +76,13 @@ public class Thunder
         networkReceiver.setNetworkListener(networkListener);
     }
 
-    public void start()
-    {
+    public void start() {
         context.registerReceiver(networkReceiver, intentFilter);
         context.startService(networkIntent);
     }
 
-    public void stop()
-    {
+    public void stop() {
+        networkReceiver.stop();
         context.unregisterReceiver(networkReceiver);
         context.stopService(networkIntent);
     }

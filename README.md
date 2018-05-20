@@ -1,5 +1,5 @@
 # Thunder
-A network monitoring service library :zap:
+Android network monitoring service library :zap:
 
 Description
 -----------
@@ -9,7 +9,7 @@ Credit
 ------
 I was using social apps and Google apps that I noticed these apps monitors network always on use.
 I was wondering if such a network monitoring service exists but I couldn't find one.
-So I wrote one by myself. It may probably have errors because it is my first time writing a library.
+So I wrote one by myself.
 
 Example
 -------
@@ -36,6 +36,16 @@ Example
         Thunder.with(this).stop();
     }
     
+    @Override
+    public void onNetworkAvailable() {
+        // TODO: do something when network is availabe such as resuming a download process
+    }
+
+    @Override
+    public void onNetworkUnavailable() {
+        // TODO: do something when network is unavailabe such as pausing a download process
+    }
+    
 Usage
 -----
 To use this library in your project, copy the library folder ('thunder') and import it from your project.
@@ -46,11 +56,10 @@ In app/build.gradle
 implementation project(':thunder')
 ```
 
-minSdkVersion = '23'
+minSdkVersion = '19'
     
 Screenshot
 ----------
 In this example, I used Snackbar to show that the network is unavailable.
-The rest is your idea to do something on onNetworkAvailable and onNetworkUnavailable methods.
 
 ![Screenshot](/screenshot/screenshot.jpg)
