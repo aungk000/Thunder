@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity implements NetworkListener
 
     @Override
     public void onNetworkAvailable() {
-        snackbar.dismiss();
+        if(snackbar.isShown()) {
+            snackbar.dismiss();
+        }
     }
 
     @Override
